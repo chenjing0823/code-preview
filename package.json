@@ -1,0 +1,30 @@
+{
+  "name": "code-preview",
+  "version": "1.0.1",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "cr": "index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chenjing0823/code-preview"
+  },
+  "keywords": [],
+  "author": "chenjing0823",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "chalk": "^4.1.1",
+    "conf": "^10.0.1",
+    "dayjs": "^1.10.6",
+    "dingtalk-jsapi": "^2.13.42",
+    "execa": "^5.1.1",
+    "figlet": "^1.5.0",
+    "inquirer": "^8.1.1",
+    "simple-git": "^2.40.0"
+  }
+}
