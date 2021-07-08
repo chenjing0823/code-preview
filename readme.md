@@ -14,7 +14,7 @@ npm install @xbb/code-preview -g
 preview login
 ```
 按步骤 输入公司的gitlab``` 用户名```、```密码```、```access_token```
-> access_token: 在gitlab的http://192.168.10.6/profile/personal_access_tokens设置后，复制下来即可
+> access_token: 在gitlab的http://192.168.10.6/profile/personal_access_tokens 设置后，复制下来即可
 
 #### 2.创建分支
 1. 若要新建一个``` feature/test ```
