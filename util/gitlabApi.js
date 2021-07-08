@@ -90,10 +90,10 @@ async function createMr (projId, devBranch, testBranch, reviewer, title) {
   })
 }
 
-async function getUser (oaName) {
+async function getUser (gitNAME) {
   let user = await api.get(`/users`, {
     params: {
-      username: oaName
+      username: gitNAME
     }
   })
   if (!user || !user.length) {

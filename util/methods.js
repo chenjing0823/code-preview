@@ -8,7 +8,13 @@ const gitlabApi = require('./gitlabApi');
 const preset = require('./preset');
 const config = require('./config');
 const chalk = require('chalk');
-
+/**
+ * 获取本地版本
+ * */
+ const getVersion = () => {
+  const version = require('../package').version
+  log.success('当前版本: ' +  version)
+}
 /**
  * 生成新分支
  * */
@@ -59,7 +65,7 @@ const chalk = require('chalk');
 }
 
   /**
-  * MR 指定oa账号
+  * MR 指定GIT账号
   * */
  const mrToUser = async (repo, branch, testBranch) => {
   inquirer.prompt([
@@ -190,13 +196,14 @@ async function getOriginBranch () {
   log.info('')
   log.color('cyan', '参数')
   log.color('white', '- -v 查看当前版本')
-  log.color('white', '- auth  配置帐号信息(初次使用时必须先配置帐号')
+  log.color('white', '- login  配置帐号信息(初次使用时必须先配置帐号')
   log.color('white', '- mr    提交Merge Request, 基于当前分支')
   log.info('')
   log.color('magenta', '******🤔️ 有疑问请联系:陈靖 🤔️******')
 }
 
 module.exports = {
+  getVersion,
   preview,
   newBranch,
   mergeRequest

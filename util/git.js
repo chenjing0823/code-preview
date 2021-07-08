@@ -6,7 +6,7 @@ const execa = require('execa');
 /**
  * 分支检测
  * */
- async function hasGitRepo () {
+async function hasGitRepo () {
   const isRepo = await git.checkIsRepo() // git判断 是否仓库
   if (!isRepo) {
     log.error('当前目录不存在git仓库!')
@@ -57,7 +57,7 @@ const execa = require('execa');
 /**
  * 根据分支名创建分支
  * */
- async function generateBranchName (proj, demandName) {
+async function generateBranchName (proj, demandName) {
   if (!demandName) {
     return false
   }
@@ -81,7 +81,7 @@ const execa = require('execa');
 /**
  * 切换分支
  * */
- async function checkOriginBranch (branch) {
+async function checkOriginBranch (branch) {
   await execa('git', ['fetch'])
   try {
     let checkout = await execa(`git`, [`checkout`, `-b`, `${branch}`, `origin/${branch}`])
@@ -113,7 +113,7 @@ async function  createBranch (repo, demandName, localBranch = '') {
 /**
  * 获取当前分支 - 本地.git
  * */
- async function getNowBranch () {
+async function getNowBranch () {
   let ret = await git.branch();
   if (!ret) {
     return false;

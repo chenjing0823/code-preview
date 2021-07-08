@@ -4,16 +4,18 @@ const preset = require('./preset');
 /**
  * @description 命令集合, 以后可扩展为git工具
  * */
- const actionMap = {
+const actionMap = {
+  '-v': methods.getVersion,
   'login': preset.set,
   'new': methods.newBranch,
   'mr': methods.mergeRequest
 }
 
+
 /**
  * 配置信息检测
- * */
- const switchAction = () => {
+ */
+const switchAction = () => {
   if (!preset.get()) {
     log.info('未发现帐号配置,请配置后使用')
     preset.set();
