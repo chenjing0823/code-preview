@@ -11,7 +11,7 @@ npm install @xbb/code-preview -g
 ### 使用
 #### 1.配置账号
 ```
-code-preview login
+preview login
 ```
 按步骤 输入公司的gitlab``` 用户名```、```密码```、```access_token```
 > access_token: 在gitlab的http://192.168.10.6/profile/personal_access_tokens设置后，复制下来即可
@@ -21,7 +21,7 @@ code-preview login
 2. 默认从``` master ```拉取
 3. 自动将生成的分支 推送 至``` origin ```
 ```
-code-preview new feature/test
+preview new feature/test
 ```
 
 > tips: 后续迭代 会加入 
@@ -35,9 +35,9 @@ code-preview new feature/test
 
 在``` feature/test ```分支下，运行以下命令
 ```
-code-preview mr
+preview mr
 # 或者指定分支
-code-preview mr hotfix/v4.41.0
+preview mr hotfix/v4.41.0
 ```
 > tips: 开发过程中 还是要正常
 1. 输入core review对象，即负责人：如陈靖 输入 ```chenjing```, 名字来自```gitlab```账户
@@ -47,13 +47,8 @@ code-preview mr hotfix/v4.41.0
 
 
 ### change log
-```1.0.1```
-> + code-preview 命令 可用 cr 代替
-> 例如：
->
->```
->cr mr 等价于 code-preview mr
->```
+```1.0.2```
+> + code-preview 用 preview 代替
 
 ```1.0.0```
 > + 能基于新建分支
