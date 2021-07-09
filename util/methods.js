@@ -8,6 +8,8 @@ const gitlabApi = require('./gitlabApi');
 const preset = require('./preset');
 const config = require('./config');
 const chalk = require('chalk');
+const downloading = require('./progress-bar');
+const execa = require('execa');
 /**
  * 获取本地版本
  * */
@@ -15,6 +17,45 @@ const chalk = require('chalk');
   const version = require('../package').version
   log.success('当前版本: ' +  version)
 }
+
+const checkPkgVersion = async (isCheck = false) => {
+  // 获取看版本列表
+  const data = await execa(`npm`, ['view', '@xbb/code-preview' , 'version']).catch(e => {
+    log.error(e)
+    process.exit()
+  })
+  let newVersion = JSON.parse(JSON.stringify(data.stdout))
+  const currentVersion = require('../package').version
+  if (newVersion) {
+    if (newVersion === currentVersion && !isCheck) {
+      log.success('您本地已是最新版本: ' + currentVersion)
+      process.exit()
+    } else {
+      log.info('当前版本：' + currentVersion)
+      log.success('最新版本：' + newVersion)
+      if (isCheck) {
+        log.success('请更新到最新版本体验更丰富的功能 - [运行：preview update]')
+        log.info('---------------------------------------------------')
+        return false
+      }
+    }
+  }
+}
+
+/**
+ * code-preview 获取最新版本
+ * */
+const update = async () => {
+  await checkPkgVersion()
+  downloading(0)
+  await execa(`npm`, [`install`, `-g`, `@xbb/code-preview`]).catch(e => {
+    log.error(e)
+    process.exit()
+  })
+  downloading(100)
+  process.exit()
+}
+
 /**
  * 生成新分支
  * */
@@ -204,6 +245,7 @@ async function getOriginBranch () {
 
 module.exports = {
   getVersion,
+  update,
   preview,
   newBranch,
   mergeRequest

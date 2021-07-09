@@ -47,6 +47,12 @@ preview mr hotfix/v4.41.0
 
 
 ### change log
+```1.0.4```
+> + 添加 update 命令，迭代频繁，需要 update
+
+```1.0.3```
+> + 添加-v 查看版本
+
 ```1.0.2```
 > + code-preview 用 preview 代替
 

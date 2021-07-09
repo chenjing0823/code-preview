@@ -6,6 +6,7 @@ const preset = require('./preset');
  * */
 const actionMap = {
   '-v': methods.getVersion,
+  'update': methods.update,
   'login': preset.set,
   'new': methods.newBranch,
   'mr': methods.mergeRequest
