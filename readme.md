@@ -47,18 +47,21 @@ preview mr hotfix/v4.41.0
 
 
 ### change log
+```1.0.6```
+> update 测试bug，mac用户需要sudo npm 才有足够权限。
+
 ```1.0.5```
-> + 添加 update 文案，本地安装后update测试
+> 添加 update 文案，本地安装后update测试
 
 ```1.0.4```
-> + 添加 update 命令，迭代频繁，需要 update
+> 添加 update 命令，迭代频繁，需要 update
 
 ```1.0.3```
-> + 添加-v 查看版本
+> 添加-v 查看版本
 
 ```1.0.2```
-> + code-preview 用 preview 代替
+> code-preview 用 preview 代替
 
 ```1.0.0```
-> + 能基于新建分支
-> + 正常merge request，
+> 1. 能基于新建分支
+> 2. 正常merge request，
