@@ -11,15 +11,15 @@ const chalk = require('chalk');
 const downloading = require('./progress-bar');
 const execa = require('execa');
 
-const os = require('os');
-const sysType = os.type();
-//Linux系统上'Linux'
-//macOS 系统上'Darwin'
-//Windows系统上'Windows_NT'
-const cli = {
-  Darwin: 'sudo npm',
-  Windows_NT: 'npm'
-}
+// const os = require('os');
+// const sysType = os.type();
+// //Linux系统上'Linux'
+// //macOS 系统上'Darwin'
+// //Windows系统上'Windows_NT'
+// const cli = {
+//   Darwin: 'sudo npm',
+//   Windows_NT: 'npm'
+// }
 
 /**
  * 获取本地版本
@@ -31,7 +31,7 @@ const cli = {
 
 const checkPkgVersion = async (isCheck = false) => {
   // 获取看版本列表
-  const data = await execa(`${cli[sysType]}`, ['view', '@xbb/code-preview' , 'version']).catch(e => {
+  const data = await execa(`npm`, ['view', '@xbb/code-preview' , 'version']).catch(e => {
     log.error(e)
     process.exit()
   })
@@ -59,7 +59,7 @@ const checkPkgVersion = async (isCheck = false) => {
 const update = async () => {
   await checkPkgVersion()
   downloading(0)
-  await execa(`${cli[sysType]}`, [`install`, `-g`, `@xbb/code-preview`]).catch(e => {
+  await execa(`npm`, [`install`, `-g`, `@xbb/code-preview`]).catch(e => {
     log.error(e)
     process.exit()
   })
@@ -248,7 +248,7 @@ const preview = () => {
   log.info('')
   log.color('cyan', '参数')
   log.color('white', '- -v 查看当前版本')
-  log.color('white', '- update  更新')
+  // log.color('white', '- update  更新')
   log.color('white', '- login  配置帐号信息(初次使用时必须先配置帐号')
   log.color('white', '- mr    提交Merge Request, 基于当前分支')
   log.info('')

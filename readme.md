@@ -47,6 +47,9 @@ preview mr hotfix/v4.41.0
 
 
 ### change log
+```1.0.8```
+> 先注释掉 update 
+
 ```1.0.7```
 > update 测试验证用的 publish
 
