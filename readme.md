@@ -47,6 +47,9 @@ preview mr hotfix/v4.41.0
 
 
 ### change log
+```1.0.7```
+> update 测试验证用的 publish
+
 ```1.0.6```
 > update 测试bug，mac用户需要sudo npm 才有足够权限。
 
