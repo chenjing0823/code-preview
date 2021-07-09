@@ -59,7 +59,7 @@ const update = async () => {
 /**
  * 生成新分支
  * */
- const newBranch = async () => {
+const newBranch = async () => {
   //  console.log('process.argv', process.argv)
   const verifyReg = /^[a-zA-Z0-9_\/]+$/
   const verifyText = '请输入分支名称 如 feature/test , 用于创建分支'
@@ -108,7 +108,7 @@ const update = async () => {
   /**
   * MR 指定GIT账号
   * */
- const mrToUser = async (repo, branch, testBranch) => {
+const mrToUser = async (repo, branch, testBranch) => {
   inquirer.prompt([
     {
       type: 'input',
@@ -176,7 +176,7 @@ async function getOriginBranch () {
  *
  * 创建 merge request
  * */
- const mergeRequest = async () => {
+const mergeRequest = async () => {
   let repo = await git.hasGitRepo();
    if (!repo) {
     log.error(`当前目录下不存在前端项目`);
@@ -230,17 +230,18 @@ async function getOriginBranch () {
 /**
  * preview 初始基本信息展示
  * */
- const preview = () => {
+const preview = () => {
   log.color('white', figlet.textSync('XBBFE'))
-  log.success('******🔧 前置Review流程工具 🔧******')
+  log.success('******🔧 前置Review流程工具 code review 🔧******')
   log.success('当前版本：' +  require('../package').version)
   log.info('')
   log.color('cyan', '参数')
   log.color('white', '- -v 查看当前版本')
+  log.color('white', '- update  更新')
   log.color('white', '- login  配置帐号信息(初次使用时必须先配置帐号')
   log.color('white', '- mr    提交Merge Request, 基于当前分支')
   log.info('')
-  log.color('magenta', '******🤔️ 有疑问请联系:陈靖 🤔️******')
+  log.color('magenta', '******👉 有疑问请联系:陈靖 👈******')
 }
 
 module.exports = {

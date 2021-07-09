@@ -47,6 +47,9 @@ preview mr hotfix/v4.41.0
 
 
 ### change log
+```1.0.5```
+> + 添加 update 文案，本地安装后update测试
+
 ```1.0.4```
 > + 添加 update 命令，迭代频繁，需要 update
 
